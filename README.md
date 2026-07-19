@@ -1,5 +1,18 @@
 # 個人網站導航頁
 
+![Python Version](https://img.shields.io/badge/python-3.12-blue)
+![Django Version](https://img.shields.io/badge/Django-5.2-0C4B33?logo=django&logoColor=white)
+![uv](https://img.shields.io/badge/uv-managed-6A4C93?logo=uv&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Docker Compose](https://img.shields.io/badge/Docker%20Compose-2496ED?logo=docker&logoColor=white)
+![Gunicorn](https://img.shields.io/badge/Gunicorn-23.0-499848)
+![Nginx](https://img.shields.io/badge/Nginx-1.27-009639?logo=nginx&logoColor=white)
+![Google Cloud Run](https://img.shields.io/badge/Google%20Cloud%20Run-deployed-4285F4?logo=googlecloud&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/Cloudflare-DNS%20%2B%20proxy-F38020?logo=cloudflare&logoColor=white)
+![License](https://img.shields.io/github/license/CJhangTW/personal-link-hub)
+![GitHub last commit](https://img.shields.io/github/last-commit/CJhangTW/personal-link-hub)
+
 一個以 Django 建立的單體式個人網站導航頁。首頁展示個人介紹與連結清單，管理者可以透過 Django Admin 更新內容；每個連結也可以使用短網址轉址並累計點擊次數。
 
 這個專案的應用程式與部署環境分離設計：Django 不依賴特定雲端服務，資料庫、容器映像儲存庫、執行平台與 DNS 供應商都可以依需求替換。
