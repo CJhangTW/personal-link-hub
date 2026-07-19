@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ profile.hero_subtitle|default:'A personal link hub' }}">
+  <title>{{ profile.display_name|default:'My Links' }}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'links/style.css' %}">
+</head>
+<body>
+  <header class="site-header shell">
+    <a class="brand" href="#top" aria-label="{{ profile.display_name|default:'My Links' }} home">
+      {% if profile.logo_url %}
+        <img class="brand-mark" src="{{ profile.logo_url }}" alt="{{ profile.display_name }} logo">
+      {% else %}
+        <span class="brand-mark" aria-hidden="true">{{ profile.display_name|default:'ML'|slice:':2'|upper }}</span>
+      {% endif %}
+      <span class="brand-name">{{ profile.display_name|default:'My Links' }}</span>
+    </a>
+  </header>
+
+  <main id="top">
+    <section id="about" class="hero" aria-labelledby="hero-title">
+      <div class="cloud cloud-left" aria-hidden="true"></div>
+      <div class="cloud cloud-right" aria-hidden="true"></div>
+      <div class="hero-content shell">
+        <span class="eyebrow">PERSONAL LINK HUB</span>
+        <h1 id="hero-title">{{ profile.hero_title|default:'My Links' }}</h1>
+        <p class="hero-subtitle">{{ profile.hero_subtitle|default:'A personal link hub' }}</p>
+        <p class="intro">{{ profile.intro_text|default:'Projects, writing, and useful places online.' }}</p>
+        {% if profile.location_text %}
+          <p class="location"><span aria-hidden="true">●</span> {{ profile.location_text }}</p>
+        {% endif %}
+      </div>
+      <a class="scroll-cue" href="#links" aria-label="Scroll to links"><span aria-hidden="true">⌄</span></a>
+    </section>
+
+    <section id="links" class="links-section shell" aria-labelledby="links-title">
+      <div class="section-intro">
+        <span class="eyebrow">EXPLORE</span>
+        <h2 id="links-title">My Links</h2>
+        <p>Quick access to the places I share.</p>
+      </div>
+      <div class="link-list">
+        {% for link in links %}
+          <a class="link-row" href="{% url 'links:redirect-link' slug=link.slug %}">
+            <span class="link-copy">
+              <span class="link-title">{{ link.title }}</span>
+              {% if link.description %}<span class="link-description">{{ link.description }}</span>{% endif %}
+              <span class="link-path">/r/{{ link.slug }}/</span>
+            </span>
+            <span class="link-arrow" aria-hidden="true">→</span>
+          </a>
+        {% empty %}
+          <p class="empty-state">Links will appear here soon.</p>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <span>{{ profile.display_name|default:'My Links' }}</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>

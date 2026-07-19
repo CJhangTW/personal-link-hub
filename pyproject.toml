@@ -1,0 +1,17 @@
+[project]
+name = "personal-link-hub"
+version = "0.1.0"
+description = "A personal link hub and short URL redirect service built with Django."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "Django==5.2.16",
+    "dj-database-url>=2.3,<3",
+    "gunicorn==23.0.0",
+    "psycopg[binary]==3.2.10",
+    "python-dotenv>=1.1,<2",
+    "whitenoise>=6.9,<7",
+]
+
+[tool.uv]
+package = false
